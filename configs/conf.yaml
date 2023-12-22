@@ -1,0 +1,25 @@
+server:
+  addr: 0.0.0.0:9090
+  readTimeOut: 3s
+  writeTimeOut: 3s
+  idleTimeout: 100s
+
+
+# 同一个Go项目可能依赖多个数据库实例；mysql配置项是一个数组
+mysql:
+  - instance: default
+    dsn: root:123456@tcp(127.0.0.1:3306)/mall?charset=utf8mb4&loc=Local&parseTime=True&timeout=3s
+    trace_log: true # 是否输出所有执行sql
+    slow_threshold: 100 # 慢响应门限，单位毫秒超出记录warn日志
+
+logger:
+  log_file: /Users/lile/Documents/gocode/go-class/mall/logs/mall.log
+  log_level: info
+
+redis:
+  addr: 127.0.0.1:6379
+  password:
+  db: 0
+  dialTimeout: 100ms
+  readTimeout: 100ms
+  writeTimeout: 100ms
